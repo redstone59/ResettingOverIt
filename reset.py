@@ -60,7 +60,7 @@ class ResettingOverIt:
         keyboard.on_press_key(config["keybinds"]["exit"][0][0], lambda x: self.set_close())
         keyboard.on_press_key(config["keybinds"]["volume_up"][0][0], lambda x: self.change_volume(10))
         keyboard.on_press_key(config["keybinds"]["volume_down"][0][0], lambda x: self.change_volume(-10))
-        keyboard.on_press_key(config["keybinds"]["recalibrate"][0][0], lambda x: self.recalibrate)
+        keyboard.on_press_key(config["keybinds"]["recalibrate"][0][0], lambda x: self.recalibrate())
         
         self.opening_message(config["keybinds"])
     
