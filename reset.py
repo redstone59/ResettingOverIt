@@ -84,7 +84,7 @@ class ResettingOverIt:
         self.volume = new_volume
         mixer.music.set_volume(self.volume / 100)
         print(f"Set volume to {self.volume}%")
-        if mixer.get_busy(): return
+        if mixer.music.get_busy(): return
         
         # Sound test on volume change.
         
@@ -102,9 +102,9 @@ class ResettingOverIt:
             
             z_score = (time_taken - mean) / standard_deviation
             
-            if z_score >= self.max_z_score:    # Commonly accepted z-score for outliers. Also seems to work for 3-1 FFPG, so.
+            if z_score >= self.max_z_score:
                 return True
-            elif z_score <= self.min_z_score: # Discard outlier resets. (z_score from just pressing reset along with gaster's stream)
+            elif z_score <= self.min_z_score:
                 return False
             
         self.times += [time_taken]
